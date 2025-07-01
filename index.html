@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Analytics - Track User Activity</title>
+    <meta name="description" content="Monitor user authentication events, analyze login patterns, and enhance security with comprehensive login analytics and reporting.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Landing Page (shown when not logged in) -->
+    <div id="landing-page" class="page active">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <h1>Login Analytics</h1>
+                    </div>
+                    <button id="login-btn" class="btn btn-primary">Sign In</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <main class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Track Login Activity</h1>
+                    <p class="hero-subtitle">
+                        Monitor user authentication events, analyze login patterns, and enhance security 
+                        with comprehensive login analytics and reporting.
+                    </p>
+                    <button id="get-started-btn" class="btn btn-primary btn-lg">Get Started</button>
+                </div>
+
+                <!-- Features -->
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Real-time Dashboard</h3>
+                        <p>Monitor login activity as it happens with live statistics and recent activity feed.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>User Tracking</h3>
+                        <p>Track who logs in, when, and from where with detailed user information.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Detailed Analytics</h3>
+                        <p>Dive deep into login patterns with filtering, search, and comprehensive reporting.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Dashboard Page (shown when logged in) -->
+    <div id="dashboard-page" class="page">
+        <!-- Header -->
+        <header class="header dashboard-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <h1>Login Analytics</h1>
+                    </div>
+                    <div class="user-menu">
+                        <div class="user-info">
+                            <img id="user-avatar" src="" alt="User" class="user-avatar">
+                            <span id="user-name" class="user-name">User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="user-dropdown">
+                            <button id="logout-btn" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Sign Out
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <div class="container">
+                <div class="panels-grid">
+                    <!-- Login/Logout Panel -->
+                    <div class="panel login-panel">
+                        <div class="panel-header">
+                            <h2><i class="fas fa-sign-in-alt"></i> Login & Logout</h2>
+                        </div>
+                        <div class="panel-content">
+                            <!-- Current User Info -->
+                            <div class="current-user-section">
+                                <h3>Current Session</h3>
+                                <div class="user-card">
+                                    <img id="current-user-avatar" src="" alt="User" class="user-avatar-large">
+                                    <div class="user-details">
+                                        <h4 id="current-user-name">John Doe</h4>
+                                        <p id="current-user-email">john.doe@example.com</p>
+                                        <p class="session-info">Logged in: <span id="login-time">2 hours ago</span></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Actions -->
+                            <div class="quick-actions">
+                                <h3>Quick Actions</h3>
+                                <div class="action-buttons">
+                                    <button id="simulate-login-btn" class="btn btn-primary">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        Simulate New Login
+                                    </button>
+                                    <button id="simulate-logout-btn" class="btn btn-outline">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        Simulate Logout
+                                    </button>
+                                    <button id="simulate-failed-login-btn" class="btn btn-outline btn-danger">
+                                        <i class="fas fa-times-circle"></i>
+                                        Simulate Failed Login
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Live Stats -->
+                            <div class="live-stats">
+                                <h3>Live Statistics</h3>
+                                <div class="stats-mini-grid">
+                                    <div class="stat-mini">
+                                        <div class="stat-number" id="mini-total-users">0</div>
+                                        <div class="stat-label">Total Users</div>
+                                    </div>
+                                    <div class="stat-mini">
+                                        <div class="stat-number" id="mini-active-sessions">0</div>
+                                        <div class="stat-label">Active Sessions</div>
+                                    </div>
+                                    <div class="stat-mini">
+                                        <div class="stat-number" id="mini-today-logins">0</div>
+                                        <div class="stat-label">Today's Logins</div>
+                                    </div>
+                                    <div class="stat-mini">
+                                        <div class="stat-number" id="mini-failed-attempts">0</div>
+                                        <div class="stat-label">Failed Attempts</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- History Panel -->
+                    <div class="panel history-panel">
+                        <div class="panel-header">
+                            <h2><i class="fas fa-history"></i> Login History</h2>
+                            <button id="refresh-history-btn" class="btn btn-ghost">
+                                <i class="fas fa-sync-alt"></i>
+                                Refresh
+                            </button>
+                        </div>
+                        <div class="panel-content">
+                            <!-- Filters -->
+                            <div class="history-filters">
+                                <div class="filter-row">
+                                    <div class="filter-item">
+                                        <label for="history-search">Search</label>
+                                        <div class="search-input-wrapper">
+                                            <i class="fas fa-search"></i>
+                                            <input type="text" id="history-search" placeholder="Search users...">
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <label for="history-status">Status</label>
+                                        <select id="history-status">
+                                            <option value="all">All</option>
+                                            <option value="success">Success</option>
+                                            <option value="failed">Failed</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-item">
+                                        <button id="export-history-btn" class="btn btn-outline btn-sm">
+                                            <i class="fas fa-download"></i>
+                                            Export
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- History List -->
+                            <div id="history-list" class="history-list">
+                                <div class="loading">Loading login history...</div>
+                            </div>
+
+                            <!-- Pagination -->
+                            <div id="history-pagination" class="pagination-simple">
+                                <!-- Pagination will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
